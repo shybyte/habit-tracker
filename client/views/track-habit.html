@@ -1,0 +1,33 @@
+<template name="trackHabit">
+    <tr>
+        <td>{{category.title}}</td>
+
+        <td>{{title}} ({{duration}} min)</td>
+
+        <td>
+            {{#if lastAction}}
+                <div class="lastAction">{{fromNow lastAction.date}} x {{lastAction.duration}} min</div>
+            {{/if}}
+        </td>
+
+
+        <td>
+            <div class="btn-group">
+                    <button type="button" class="btn btn-danger add" data-duration="15">Add 15 min</button>
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="add" href="#" data-duration="30">Add 30 min</a></li>
+                    <li><a class="add" href="#" data-duration="45">Add 45 min</a></li>
+                    <li><a class="add" href="#" data-duration="60">Add 1 hour</a></li>
+                    <li><a class="add" href="#" data-duration="75">Add 75 min</a></li>
+                    <li><a class="add" href="#" data-duration="90">Add 90 min</a></li>
+                    <li><a class="add" href="#" data-duration="105">Add 105 min</a></li>
+                    <li><a class="add" href="#" data-duration="200">Add 2 hours</a></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</template>

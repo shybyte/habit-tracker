@@ -1,0 +1,25 @@
+<template name="header">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'track'}}">Habit Tracker</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="{{activeRouteClass 'home' 'track'}}"><a href="{{pathFor 'track'}}">Track</a></li>
+                    <li class="{{activeRouteClass 'habits'}}"><a href="{{pathFor 'habits'}}">Habits</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</template>

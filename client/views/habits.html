@@ -1,0 +1,37 @@
+<template name="habits">
+
+    <form id="addCategory" action="">
+        <label for="categoryTitle">Category:</label>
+        <input id="categoryTitle" name="title"/>
+        <input type="submit" value="Add"/>
+    </form>
+
+    <form id="addHabit" action="">
+
+        <label for="title">Habit:</label>
+        <input id="title" name="title" autofocus="true"/>
+
+        <select name="category" id="category">
+            {{#each categories}}
+                <option value="{{_id}}">{{title}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Add"/>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Habit</th>
+            <th>Category</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each habits}}
+            {{>habit}}
+        {{/each}}
+        </tbody>
+    </table>
+
+</template>

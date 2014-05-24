@@ -1,0 +1,17 @@
+<template name="track">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Category</th>
+            <th>Habit</th>
+            <th>Last Action</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each habits}}
+            {{>trackHabit}}
+        {{/each}}
+        </tbody>
+    </table>
+</template>
