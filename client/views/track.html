@@ -1,10 +1,24 @@
 <template name="track">
+
+
     <table class="table table-striped">
         <thead>
         <tr>
             <th>Category</th>
             <th>Habit</th>
-            <th>Last Action</th>
+            <th>
+                <div class="dropdown">
+                    <a id="actionsColumnLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                        {{actionsColumnLabel}}
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li><a class="actionsColumnMode" href="#">Last Action</a></li>
+                        <li><a class="actionsColumnMode" href="#">Last Week</a></li>
+                    </ul>
+
+                </div>
+            </th>
             <th></th>
         </tr>
         </thead>

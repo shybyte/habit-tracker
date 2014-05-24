@@ -1,34 +1,48 @@
 <template name="habits">
 
-    <form id="addHabit" action="" role="form" style="max-width: 20em">
-
-        <div class="form-group">
-            <label for="title">Habit:</label>
-            <input id="title" name="title" autofocus="true" class="form-control"/>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#addHabitPanel">
+                    Add Habit
+                </a>
+            </h4>
         </div>
+        <div id="addHabitPanel" class="panel-collapse collapse">
+            <div class="panel-body">
+                <form id="addHabit" action="" role="form" style="max-width: 20em">
 
-        <div class="form-group">
-            <label for="category">Category:</label>
-            <select name="category" id="category" class="form-control">
-                {{#each categories}}
-                    {{#if isSelectedCategory}}
-                        <option value="{{_id}}" selected>{{title}}</option>
-                    {{else}}
-                        <option value="{{_id}}">{{title}}</option>
-                    {{/if}}
-                {{/each}}
-                <option disabled>──────────────────────────</option>
-                <option value="new">New Category</option>
-            </select>
+                    <div class="form-group">
+                        <label for="title">New Habit:</label>
+                        <input id="title" name="title" autofocus="true" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select name="category" id="category" class="form-control">
+                            {{#each categories}}
+                                {{#if isSelectedCategory}}
+                                    <option value="{{_id}}" selected>{{title}}</option>
+                                {{else}}
+                                    <option value="{{_id}}">{{title}}</option>
+                                {{/if}}
+                            {{/each}}
+                            <option disabled>──────────────────────────</option>
+                            <option value="new">New Category</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="display: none" id="newCategory">
+                        <label for="categoryTitle">New Category:</label>
+                        <input id="categoryTitle" name="categoryTitle" class="form-control"/>
+                    </div>
+
+                    <input type="submit" value="Add" class="btn btn-primary"/>
+                </form>
+            </div>
         </div>
+    </div>
 
-        <div class="form-group" style="display: none" id="newCategory">
-            <label for="categoryTitle">Category:</label>
-            <input id="categoryTitle" name="categoryTitle" class="form-control"/>
-        </div>
-
-        <input type="submit" value="Add" class="btn btn-primary"/>
-    </form>
 
     <table class="table table-striped">
         <thead>

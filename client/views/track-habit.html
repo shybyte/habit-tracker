@@ -5,15 +5,22 @@
         <td>{{title}}</td>
 
         <td>
-            {{#if lastAction}}
-                <div class="lastAction">{{fromNow lastAction.date}} x {{lastAction.duration}} min</div>
+            {{#if showLastAction}}
+                {{#if lastAction}}
+                    <div class="lastAction">{{fromNow lastAction.date}} x {{lastAction.duration}} min</div>
+                {{/if}}
+            {{/if}}
+            {{#if showLastWeek}}
+                {{#each lastWeek}}
+                    <div class="lastAction">{{fromNow date}} x {{duration}} min</div>
+                {{/each}}
             {{/if}}
         </td>
 
 
         <td>
             <div class="btn-group">
-                    <button type="button" class="btn btn-primary add" data-duration="15">Add 15 min</button>
+                <button type="button" class="btn btn-primary add" data-duration="15">Add 15 min</button>
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                     <span class="sr-only"></span>

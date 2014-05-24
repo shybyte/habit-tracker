@@ -4,6 +4,15 @@ Template.trackHabit.helpers({
   },
   lastAction: function () {
     return Actions.findOne({habit: this._id}, {sort: {date: -1}});
+  },
+  lastWeek: function () {
+    return Actions.find({habit: this._id,date: {$gte: moment().subtract('days', 7).toDate()}}, {sort: {date: -1}});
+  },
+  showLastAction: function () {
+    return Session.get('actionsColumnLabel') == 'Last Action';
+  },
+  showLastWeek: function () {
+    return Session.get('actionsColumnLabel') == 'Last Week';
   }
 });
 

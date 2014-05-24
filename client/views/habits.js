@@ -1,15 +1,20 @@
 Template.habits.helpers({
   habits: function () {
-    return Habbits.find();
+    return Habbits.find({},{sort:{title: 1}});
   },
   categories: function () {
-    return Categories.find();
+    return Categories.find({},{sort:{title: 1}});
   },
   isSelectedCategory: function () {
     return (Session.get('selectedCategoryId') || Categories.findOne()._id) == this._id;
   }
 });
 
+Template.habits.rendered = function () {
+  $('#addHabitPanel').on('shown.bs.collapse', function () {
+    $('#title').focus();
+  });
+};
 
 Template.habits.events({
   'submit form#addHabit': function (event) {
@@ -53,7 +58,9 @@ Template.habits.events({
     var categoryId = event.target.value;
     Session.set('selectedCategoryId', categoryId);
     if (categoryId == 'new') {
-      $('#newCategory').show('slow');
+      $('#newCategory').show('slow',function () {
+        $('#categoryTitle').focus();
+      });
     } else {
       $('#newCategory').hide('slow');
     }
