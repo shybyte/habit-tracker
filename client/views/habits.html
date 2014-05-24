@@ -1,22 +1,33 @@
 <template name="habits">
 
-    <form id="addCategory" action="">
-        <label for="categoryTitle">Category:</label>
-        <input id="categoryTitle" name="title"/>
-        <input type="submit" value="Add"/>
-    </form>
+    <form id="addHabit" action="" role="form" style="max-width: 20em">
 
-    <form id="addHabit" action="">
+        <div class="form-group">
+            <label for="title">Habit:</label>
+            <input id="title" name="title" autofocus="true" class="form-control"/>
+        </div>
 
-        <label for="title">Habit:</label>
-        <input id="title" name="title" autofocus="true"/>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select name="category" id="category" class="form-control">
+                {{#each categories}}
+                    {{#if isSelectedCategory}}
+                        <option value="{{_id}}" selected>{{title}}</option>
+                    {{else}}
+                        <option value="{{_id}}">{{title}}</option>
+                    {{/if}}
+                {{/each}}
+                <option disabled>──────────────────────────</option>
+                <option value="new">New Category</option>
+            </select>
+        </div>
 
-        <select name="category" id="category">
-            {{#each categories}}
-                <option value="{{_id}}">{{title}}</option>
-            {{/each}}
-        </select>
-        <input type="submit" value="Add"/>
+        <div class="form-group" style="display: none" id="newCategory">
+            <label for="categoryTitle">Category:</label>
+            <input id="categoryTitle" name="categoryTitle" class="form-control"/>
+        </div>
+
+        <input type="submit" value="Add" class="btn btn-primary"/>
     </form>
 
     <table class="table table-striped">
