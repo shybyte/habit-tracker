@@ -4,7 +4,9 @@
     "basePackages": {
       "moment": {},
       "bootstrap-3": {},
-      "iron-router": {}
+      "iron-router": {},
+      "nvd3js": {},
+      "sugar": {}
     },
     "packages": {
       "moment": {
@@ -21,6 +23,16 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.7.1",
         "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
+      },
+      "nvd3js": {
+        "git": "https://github.com/ouuyeah/nvd3js.git",
+        "tag": "v0.1.0",
+        "commit": "89a8c66bb3b35d25900d31195ae0b318e4176ddb"
+      },
+      "sugar": {
+        "git": "https://github.com/bevanhunt/meteor-sugar.git",
+        "tag": "v0.1.6",
+        "commit": "8973ed7e027e260a572571d02d0f4a428ca866f9"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

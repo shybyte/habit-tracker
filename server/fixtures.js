@@ -8,7 +8,7 @@
       title: 'Music'
     });
 
-    var sing = Habbits.insert({
+    var singing = Habbits.insert({
       title: 'Practise Singing',
       category: music
     });
@@ -23,24 +23,23 @@
       category: sport
     });
 
-    Actions.insert({
-      habit: sing,
-      duration: 15,
-      date: moment().subtract('days', 3).toDate()
+    (15).times(function () {
+      Actions.insert({
+        habit: singing,
+        duration: Number.random(15,60),
+        date: moment().subtract('day', Number.random(1,40)).toDate()
+      });
+      Actions.insert({
+        habit: running,
+        duration: Number.random(15,60),
+        date: moment().subtract('day', Number.random(1,40)).toDate()
+      });
+      Actions.insert({
+        habit: bouldern,
+        duration: Number.random(15,60),
+        date: moment().subtract('day', Number.random(1,40)).toDate()
+      });
     });
-
-    Actions.insert({
-      habit: sing,
-      duration: 30,
-      date: moment().subtract('hours', 2).toDate()
-    });
-
-    Actions.insert({
-      habit: running,
-      duration: 70,
-      date: moment().subtract('month', 1).toDate()
-    });
-
 
   }
 })();

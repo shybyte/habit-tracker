@@ -2,6 +2,8 @@
   "packages": {
     "moment": {},
     "bootstrap-3": {},
-    "iron-router": {}
+    "iron-router": {},
+    "nvd3js": {},
+    "sugar": {}
   }
 }

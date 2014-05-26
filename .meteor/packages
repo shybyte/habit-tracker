@@ -9,3 +9,6 @@ insecure
 moment
 bootstrap-3
 iron-router
+d3
+nvd3js
+sugar
