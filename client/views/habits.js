@@ -25,7 +25,8 @@ Template.habits.events({
     function addHabit() {
       Meteor.call('addHabit', {
         title: form.title.value,
-        category: categoryId
+        category: categoryId,
+        user: Meteor.user()._id
       }, function (error, id) {
         if (error) {
           return alert(error.reason);
@@ -42,6 +43,7 @@ Template.habits.events({
         Session.set('selectedCategoryId', categoryId);
         $('#category').val(categoryId).change();
       }
+
       var newCategoryTitle = form.categoryTitle.value
       var categoryWithNewCategoryTitle = Categories.findOne({title: newCategoryTitle});
       if (categoryWithNewCategoryTitle) {
@@ -67,7 +69,11 @@ Template.habits.events({
   },
   'click .remove': function () {
     event.preventDefault();
-    Habits.remove({_id: this._id});
+    Meteor.call('removeHabit', this._id, function (error, id) {
+      if (error) {
+        return alert(error.reason);
+      }
+    });
   },
   'change #category': function (event) {
     event.preventDefault();

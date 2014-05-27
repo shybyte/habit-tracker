@@ -1,11 +1,11 @@
 Meteor.publish('categories', function() {
-  return Categories.find();
+  return Categories.find({user: this.userId});
 });
 
 Meteor.publish('habits', function() {
-  return Habits.find();
+  return Habits.find({user: this.userId});
 })
 
 Meteor.publish('actions', function() {
-  return Actions.find();
+  return Actions.find({user: this.userId});
 })
