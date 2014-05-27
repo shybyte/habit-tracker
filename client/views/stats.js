@@ -9,26 +9,22 @@ function getLastMonthData() {
     return [];
   }
   var daysSinceFirstActionInLastMonth = Math.floor((Date.now() - firstActionInLastMonth.date.getTime()) / 1000 / 60 / 60);
-  var lastMonthRange = Number.range(Math.min(31, daysSinceFirstActionInLastMonth + 1), 0).every();
+  var daysRange = Number.range(Math.min(31, daysSinceFirstActionInLastMonth + 1), 0).every();
   var actionsByCategory = lastMonthActions.groupBy(function (action) {
     return Habits.findOne({_id: action.habit}).category;
   });
-  var data = Object.keys(actionsByCategory).map(function (categoryId) {
+  return Object.keys(actionsByCategory).map(function (categoryId) {
     return {
-      values: lastMonthRange.map(function (daysAgo) {
+      values: daysRange.map(function (daysAgo) {
         var dayX = moment(now).subtract('days', daysAgo);
         var actionsOnDayX = actionsByCategory[categoryId].filter(function (action) {
           return moment(action.date).dayOfYear() == dayX.dayOfYear();
         });
         return {x: dayX.toDate(), y: actionsOnDayX.sum('duration')}
       }),
-      key: categoryId
+      key: Categories.findOne({_id: categoryId}).title
     };
-  }).map(function (dataSet) {
-    dataSet.key = Categories.findOne({_id: dataSet.key}).title;
-    return dataSet
   });
-  return data;
 }
 
 Template.stats.rendered = function () {
