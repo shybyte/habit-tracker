@@ -4,6 +4,7 @@
     "bootstrap-3": {},
     "iron-router": {},
     "nvd3js": {},
-    "sugar": {}
+    "sugar": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }

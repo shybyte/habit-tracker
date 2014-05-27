@@ -8,7 +8,7 @@ Template.stats.rendered = function () {
 
       var lastMonthRange = Number.range(31, 0).every();
       var actionsByCategory = lastMonthActions.groupBy(function (action) {
-        return Habbits.findOne({_id: action.habit}).category;
+        return Habits.findOne({_id: action.habit}).category;
       });
       var now = moment();
       var data = Object.keys(actionsByCategory).map(function (categoryId) {

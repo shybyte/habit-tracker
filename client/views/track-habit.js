@@ -19,10 +19,18 @@ Template.trackHabit.helpers({
 Template.trackHabit.events({
   'click .add': function (event) {
     event.preventDefault();
-    Actions.insert({
+
+    var action = {
       habit: this._id,
       duration: parseInt(event.target.dataset.duration),
       date: moment().toDate()
+    };
+
+    Meteor.call('addAction', action, function(error, id) {
+      if (error) {
+        return alert(error.reason);
+      }
     });
+
   }
 });

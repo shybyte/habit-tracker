@@ -4,11 +4,11 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
-insecure
 moment
 bootstrap-3
 iron-router
 d3
 nvd3js
 sugar
+accounts-ui-bootstrap-3
+accounts-password

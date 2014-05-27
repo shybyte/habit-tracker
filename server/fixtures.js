@@ -1,5 +1,5 @@
 (function () {
-  if (Habbits.find().count() === 0) {
+  if (Habits.find().count() === 0) {
     var sport = Categories.insert({
       title: 'Sport'
     });
@@ -8,17 +8,17 @@
       title: 'Music'
     });
 
-    var singing = Habbits.insert({
+    var singing = Habits.insert({
       title: 'Practise Singing',
       category: music
     });
 
-    var running = Habbits.insert({
+    var running = Habits.insert({
       title: 'Running',
       category: sport
     });
 
-    var bouldern = Habbits.insert({
+    var bouldern = Habits.insert({
       title: 'Bouldern',
       category: sport
     });

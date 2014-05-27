@@ -1,3 +1,11 @@
-Meteor.startup(function () {
-  // code to run on server at startup
+Meteor.publish('categories', function() {
+  return Categories.find();
 });
+
+Meteor.publish('habits', function() {
+  return Habits.find();
+})
+
+Meteor.publish('actions', function() {
+  return Actions.find();
+})
