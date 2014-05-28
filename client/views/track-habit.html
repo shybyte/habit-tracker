@@ -1,9 +1,7 @@
 <template name="trackHabit">
     <tr>
-        <td>{{category.title}}</td>
-
         <td>{{title}}</td>
-
+        <td>{{category.title}}</td>
         <td>
             {{#if showLastAction}}
                 {{#if lastAction}}
@@ -39,6 +37,15 @@
                     <li><a class="add" href="#" data-duration="360">Add 6 hours</a></li>
                 </ul>
             </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    More <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="remove" href="#">Delete</a></li>
+                </ul>
+            </div>
+
         </td>
     </tr>
 </template>

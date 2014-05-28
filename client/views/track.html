@@ -1,31 +1,50 @@
 <template name="track">
 
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Category</th>
-            <th>Habit</th>
-            <th>
-                <div class="dropdown">
-                    <a id="actionsColumnLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-                        {{actionsColumnLabel}}
-                    </a>
+    <a data-toggle="collapse" href="#addHabitPanel" style="margin-left: 0.5em;">Add Habit</a>
 
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <li><a class="actionsColumnMode" href="#">Last Action</a></li>
-                        <li><a class="actionsColumnMode" href="#">Last Week</a></li>
-                    </ul>
+    <div id="addHabitPanel" class="panel-collapse collapse panel panel-default" style="margin-top: 0.5em;">
+        <div>
+            <div class="panel-body">
+                {{>addHabit}}
+            </div>
+        </div>
+    </div>
 
-                </div>
-            </th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each habits}}
-            {{>trackHabit}}
-        {{/each}}
-        </tbody>
-    </table>
+    {{#if existHabits}}
+
+        <table class="table table-striped" style="margin-top: 0.5em">
+            <thead>
+            <tr>
+                <th>Habit</th>
+                <th>Category</th>
+                <th>
+                    <div class="dropdown">
+                        <a id="actionsColumnLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                            {{actionsColumnLabel}}
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a class="actionsColumnMode" href="#">Last Action</a></li>
+                            <li><a class="actionsColumnMode" href="#">Last Week</a></li>
+                        </ul>
+
+                    </div>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each habits}}
+                {{>trackHabit}}
+            {{/each}}
+            </tbody>
+        </table>
+
+    {{else}}
+        <div class="alert alert-info" style="margin-top: 1em;">
+            There are no habits yet. Please add one!
+        </div>
+    {{/if}}
+
 </template>

@@ -1,7 +1,4 @@
-Template.habits.helpers({
-  habits: function () {
-    return Habits.find({}, {sort: {title: 1}});
-  },
+Template.addHabit.helpers({
   categories: function () {
     return Categories.find({}, {sort: {title: 1}});
   },
@@ -10,13 +7,7 @@ Template.habits.helpers({
   }
 });
 
-Template.habits.rendered = function () {
-  $('#addHabitPanel').on('shown.bs.collapse', function () {
-    $('#title').focus();
-  });
-};
-
-Template.habits.events({
+Template.addHabit.events({
   'submit form#addHabit': function (event) {
     event.preventDefault();
     var form = event.target;
@@ -67,14 +58,6 @@ Template.habits.events({
 
     addHabit();
   },
-  'click .remove': function () {
-    event.preventDefault();
-    Meteor.call('removeHabit', this._id, function (error, id) {
-      if (error) {
-        return alert(error.reason);
-      }
-    });
-  },
   'change #category': function (event) {
     event.preventDefault();
     var categoryId = event.target.value;
@@ -87,4 +70,4 @@ Template.habits.events({
       $('#newCategory').hide('slow');
     }
   }
-});
+})

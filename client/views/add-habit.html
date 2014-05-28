@@ -1,0 +1,31 @@
+<template name="addHabit">
+    <form id="addHabit" action="" role="form" style="max-width: 20em">
+
+        <div class="form-group">
+            <label for="title">New Habit:</label>
+            <input id="title" name="title" autofocus="true" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select name="category" id="category" class="form-control">
+                {{#each categories}}
+                    {{#if isSelectedCategory}}
+                        <option value="{{_id}}" selected>{{title}}</option>
+                    {{else}}
+                        <option value="{{_id}}">{{title}}</option>
+                    {{/if}}
+                {{/each}}
+                <option disabled>──────────────────────────</option>
+                <option value="new">New Category</option>
+            </select>
+        </div>
+
+        <div class="form-group" style="display: none" id="newCategory">
+            <label for="categoryTitle">New Category:</label>
+            <input id="categoryTitle" name="categoryTitle" class="form-control"/>
+        </div>
+
+        <input type="submit" value="Add" class="btn btn-primary"/>
+    </form>
+</template>
