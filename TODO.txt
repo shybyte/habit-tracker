@@ -1,6 +1,11 @@
+TODO:
 * Remove Actions
 * Edit Habit
-* Comment on Action
-* Validation of Form Input (Habit title, New Category Title, Time/Duration of Action)
-  - Don't allow + Warning Message +Mark red
+* Action Comment
+* Easier duration input
+* Validation of Form Input (Habit title, New Category Title)
+  - Don't allow + Warning Message + Mark red
 
+
+DONE:
+* Pie Chart Last Month
