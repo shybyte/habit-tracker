@@ -1,15 +1,7 @@
 <template name="track">
-
-
-    <a data-toggle="collapse" href="#addHabitPanel" style="margin-left: 0.5em;">Add Habit</a>
-
-    <div id="addHabitPanel" class="panel-collapse collapse panel panel-default" style="margin-top: 0.5em;">
-        <div>
-            <div class="panel-body">
-                {{>addHabit}}
-            </div>
-        </div>
-    </div>
+    {{>addActionDialog}}
+    {{>addHabitDialog}}
+    <a class="btn btn-primary" data-toggle="modal" data-target="#addHabitDialog" style="margin-left: 0.5em;">Add Habit</a>
 
     {{#if existHabits}}
 
@@ -48,3 +40,53 @@
     {{/if}}
 
 </template>
+
+
+
+<template name="addActionDialog">
+
+    <div id="addActionDialog" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Action for habit "{{currentHabit.title}}"</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addActionForm" action="" role="form" style="max-width: 20em">
+
+                        <div class="form-group">
+                            <label for="durationPicker">Duration:</label>
+
+                            <div class='input-group date durationPicker' id='durationPicker'>
+                                <input type='text' class="form-control"/>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateTimePicker">Date:</label>
+
+                            <div class='input-group date datetimePicker' id='dateTimePicker'>
+                                <input type='text' class="form-control"/>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Add" style="display: none"/>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary addAction">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</template>
+
