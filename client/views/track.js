@@ -69,7 +69,6 @@ Template.addActionDialog.events({
       duration: durationMoment.hours() * 60 + durationMoment.minutes(),
       date: getMoment('.datetimePicker').toDate()
     };
-    console.log(action);
     Meteor.call('addAction', action, function (error, id) {
       if (error) {
         return alert(error.reason);
