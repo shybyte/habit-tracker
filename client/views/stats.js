@@ -8,8 +8,8 @@ function getLastMonthData() {
   if (!firstActionInLastMonth) {
     return [];
   }
-  var daysSinceFirstActionInLastMonth = Math.floor((Date.now() - firstActionInLastMonth.date.getTime()) / 1000 / 60 / 60);
-  var daysRange = Number.range(Math.min(31, daysSinceFirstActionInLastMonth + 1), 0).every();
+  var daysSinceFirstActionInLastMonth = moment.duration((Date.now() - firstActionInLastMonth.date.getTime())).days();
+  var daysRange = Number.range(Math.min(31, daysSinceFirstActionInLastMonth + 2), 0).every();
   var actionsByCategory = lastMonthActions.groupBy(function (action) {
     return Habits.findOne({_id: action.habit}).category;
   });
