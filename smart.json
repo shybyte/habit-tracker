@@ -6,6 +6,7 @@
     "nvd3js": {},
     "sugar": {},
     "accounts-ui-bootstrap-3": {},
-    "spin": {}
+    "spin": {},
+    "bootstrap3-datetimepicker": {}
   }
 }

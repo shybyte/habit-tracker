@@ -7,6 +7,15 @@ Template.addHabit.helpers({
   }
 });
 
+Template.addHabitDialog.events({
+  'click .saveHabitButton': function () {
+    $('form#addHabit').submit();
+  },
+  'shown.bs.modal #addHabitDialog': function () {
+    $('#title').focus();
+  }
+});
+
 Template.addHabit.events({
   'submit form#addHabit': function (event) {
     event.preventDefault();
@@ -22,6 +31,7 @@ Template.addHabit.events({
         if (error) {
           return alert(error.reason);
         }
+        $('#addHabitDialog').modal('hide');
       });
 
       form.title.value = '';

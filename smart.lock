@@ -8,7 +8,8 @@
       "nvd3js": {},
       "sugar": {},
       "accounts-ui-bootstrap-3": {},
-      "spin": {}
+      "spin": {},
+      "bootstrap3-datetimepicker": {}
     },
     "packages": {
       "moment": {
@@ -45,6 +46,11 @@
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.2",
         "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
+      },
+      "bootstrap3-datetimepicker": {
+        "git": "https://github.com/tsega/meteor-bootstrap3-datetimepicker.git",
+        "tag": "v0.0.5",
+        "commit": "30b5fa0759f98b75761772ad891876408f7cc8c4"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

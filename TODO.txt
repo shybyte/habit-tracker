@@ -1,0 +1,6 @@
+* Remove Actions
+* Edit Habit
+* Comment on Action
+* Validation of Form Input (Habit title, New Category Title, Time/Duration of Action)
+  - Don't allow + Warning Message +Mark red
+
