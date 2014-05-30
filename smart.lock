@@ -7,7 +7,8 @@
       "iron-router": {},
       "nvd3js": {},
       "sugar": {},
-      "accounts-ui-bootstrap-3": {}
+      "accounts-ui-bootstrap-3": {},
+      "spin": {}
     },
     "packages": {
       "moment": {
@@ -32,13 +33,18 @@
       },
       "sugar": {
         "git": "https://github.com/bevanhunt/meteor-sugar.git",
-        "tag": "v0.1.6",
-        "commit": "8973ed7e027e260a572571d02d0f4a428ca866f9"
+        "tag": "v0.1.7",
+        "commit": "eef2d45055fabeb27c003f39bb36b97a361b4455"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
         "tag": "v0.3.0-1",
         "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
+      },
+      "spin": {
+        "git": "https://github.com/SachaG/meteor-spin.git",
+        "tag": "v0.2.2",
+        "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
