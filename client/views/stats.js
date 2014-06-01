@@ -74,7 +74,7 @@ Template.stats.rendered = function () {
           .showLabels(true);
 
         chart.tooltipContent(function (key, y, e, graph) {
-          return (y / 60)  + ' hours';
+          return (y / 60).round(2) + ' hours';
         });
 
         d3.select("#monthPie svg")

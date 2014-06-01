@@ -2,6 +2,8 @@ Now:
 
 
 TODO:
+* Show actions in tooltip of bar chart
+* Show habit numbers  in tooltip of pie chart
 * Remove Actions
 * Action Comment
 * Easier duration input
