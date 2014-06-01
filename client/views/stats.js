@@ -29,7 +29,6 @@ function getLastMonthData() {
 }
 
 
-
 Template.stats.rendered = function () {
   var self = this;
   if (!self.drawStats) {
@@ -64,14 +63,18 @@ Template.stats.rendered = function () {
         nv.utils.windowResize(chart.update);
       });
 
-      nv.addGraph(function() {
+      nv.addGraph(function () {
         var chart = nv.models.pieChart()
-          .x(function(d) { return d.key; })
-          .y(function(d) { return d.value; })
+          .x(function (d) {
+            return d.key;
+          })
+          .y(function (d) {
+            return d.value;
+          })
           .showLabels(true);
 
         chart.tooltipContent(function (key, y, e, graph) {
-          return Math.floor(y / 6)/10 + ' hours';
+          return (y / 60)  + ' hours';
         });
 
         d3.select("#monthPie svg")
