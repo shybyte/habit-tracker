@@ -1,14 +1,14 @@
-<template name="addHabitDialog">
+<template name="editHabitDialog">
 
-    <div id="addHabitDialog" class="modal fade">
+    <div id="editHabitDialog" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Add Habit</h4>
+                    <h4 class="modal-title">{{#if currentHabit}}Edit{{else}}Add{{/if}} Habit</h4>
                 </div>
                 <div class="modal-body">
-                    {{>addHabit}}
+                    {{>editHabit}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary saveHabitButton">Save</button>
@@ -22,12 +22,12 @@
     <!-- /.modal -->
 </template>
 
-<template name="addHabit">
-    <form id="addHabit" action="" role="form" style="max-width: 20em">
+<template name="editHabit">
+    <form id="editHabit" action="" role="form" style="max-width: 20em">
 
         <div class="form-group">
-            <label for="title">New Habit:</label>
-            <input id="title" name="title" autofocus="true" class="form-control"/>
+            <label for="title">{{#unless currentHabit}}New{{/unless}} Habit:</label>
+            <input id="title" name="title" autofocus="true" class="form-control" value="{{currentHabit.title}}"/>
         </div>
 
         <div class="form-group">

@@ -1,6 +1,8 @@
+Now:
+
+
 TODO:
 * Remove Actions
-* Edit Habit
 * Action Comment
 * Easier duration input
 * Validation of Form Input (Habit title, New Category Title)
@@ -9,3 +11,4 @@ TODO:
 
 DONE:
 * Pie Chart Last Month
+* Edit Habit

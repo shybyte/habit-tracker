@@ -1,29 +1,39 @@
-Template.addHabit.helpers({
+Template.editHabit.helpers({
   categories: function () {
     return Categories.find({}, {sort: {title: 1}});
   },
   isSelectedCategory: function () {
     return (Session.get('selectedCategoryId') || Categories.findOne()._id) == this._id;
+  },
+  currentHabit: function () {
+    return Session.get('currentHabit');
   }
 });
 
-Template.addHabitDialog.events({
+Template.editHabitDialog.helpers({
+  currentHabit: function () {
+    return Session.get('currentHabit');
+  }
+});
+
+Template.editHabitDialog.events({
   'click .saveHabitButton': function () {
-    $('form#addHabit').submit();
+    $('form#editHabit').submit();
   },
-  'shown.bs.modal #addHabitDialog': function () {
+  'shown.bs.modal #editHabitDialog': function () {
     $('#title').focus();
   }
 });
 
-Template.addHabit.events({
-  'submit form#addHabit': function (event) {
+Template.editHabit.events({
+  'submit form#editHabit': function (event) {
     event.preventDefault();
     var form = event.target;
     var categoryId = form.category.value;
 
-    function addHabit() {
-      Meteor.call('addHabit', {
+    function editHabit() {
+      Meteor.call('saveHabit', {
+        _id: Session.get('currentHabit') ? Session.get('currentHabit')._id : undefined,
         title: form.title.value,
         category: categoryId,
         user: Meteor.user()._id
@@ -31,7 +41,7 @@ Template.addHabit.events({
         if (error) {
           return alert(error.reason);
         }
-        $('#addHabitDialog').modal('hide');
+        $('#editHabitDialog').modal('hide');
       });
 
       form.title.value = '';
@@ -58,7 +68,7 @@ Template.addHabit.events({
           } else {
             categoryId = id;
             setSelectedCategoryId()
-            addHabit();
+            editHabit();
           }
         });
         return
@@ -66,7 +76,7 @@ Template.addHabit.events({
       setSelectedCategoryId();
     }
 
-    addHabit();
+    editHabit();
   },
   'change #category': function (event) {
     event.preventDefault();

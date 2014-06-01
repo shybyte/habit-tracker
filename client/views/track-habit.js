@@ -17,9 +17,10 @@ Template.trackHabit.helpers({
 });
 
 Template.trackHabit.events({
-  'click .add': function (event) {
+  'click .editHabitDialog': function (event) {
     event.preventDefault();
-    $('#addActionDialog').modal({});
+    Session.set('currentHabit', this);
+    $('#editHabitDialog').modal('show');
   },
   'click .showAddActionDialog': function (event) {
     event.preventDefault();

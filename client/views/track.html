@@ -1,7 +1,7 @@
 <template name="track">
     {{>addActionDialog}}
-    {{>addHabitDialog}}
-    <a class="btn btn-primary" data-toggle="modal" data-target="#addHabitDialog" style="margin-left: 0.5em;">Add Habit</a>
+    {{>editHabitDialog}}
+    <a class="btn btn-primary showAddHabitDialogButton" style="margin-left: 0.5em;">Add Habit</a>
 
     {{#if existHabits}}
 

@@ -13,6 +13,10 @@ Template.track.helpers({
 });
 
 Template.track.events({
+  'click .showAddHabitDialogButton':function (event) {
+    Session.set('currentHabit', null);
+    $('#editHabitDialog').modal('show');
+  },
   'click .actionsColumnMode': function (event) {
     Session.set('actionsColumnLabel', $(event.target).text());
   },
