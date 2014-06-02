@@ -1,7 +1,11 @@
 function getLastMonthData() {
   var lastMonthActions = Actions.find({
     date: {$gte: moment().subtract('days', 31).toDate()}
-  }, {sort: {date: 1}}).fetch();
+  }, {sort: {date: 1}}).fetch().map(function (action) {
+    return $.extend({}, action, {
+      habit: Habits.findOne({_id: action.habit})
+    });
+  });
 
   var now = moment();
   var firstActionInLastMonth = lastMonthActions[0];
@@ -11,7 +15,7 @@ function getLastMonthData() {
   var daysSinceFirstActionInLastMonth = moment.duration((Date.now() - firstActionInLastMonth.date.getTime())).days();
   var daysRange = Number.range(Math.min(31, daysSinceFirstActionInLastMonth + 2), 0).every();
   var actionsByCategory = lastMonthActions.groupBy(function (action) {
-    return Habits.findOne({_id: action.habit}).category;
+    return action.habit.category;
   });
   return Object.keys(actionsByCategory).map(function (categoryId) {
     return {
@@ -20,7 +24,7 @@ function getLastMonthData() {
         var actionsOnDayX = actionsByCategory[categoryId].filter(function (action) {
           return moment(action.date).dayOfYear() == dayX.dayOfYear();
         });
-        return {x: dayX.toDate(), y: actionsOnDayX.sum('duration')}
+        return {x: dayX.toDate(), y: actionsOnDayX.sum('duration'), actions: actionsOnDayX}
       }),
       value: actionsByCategory[categoryId].sum('duration'),
       key: Categories.findOne({_id: categoryId}).title
@@ -55,6 +59,18 @@ Template.stats.rendered = function () {
           .tickFormat(d3.format(',.0f'));
 
         chart.yAxis.axisLabelDistance(50);
+
+        chart.tooltipContent(function (key, dateString, minutesSum, graph) {
+          console.log(graph.point.actions);
+          var $tooltip = $('<div/>');
+          UI.insert(UI.renderWithData(Template.tooltipBarChart, {
+            title: key,
+            date: dateString,
+            minutesSum: minutesSum,
+            actions: graph.point.actions
+          }), $tooltip.get(0));
+          return $tooltip.html();
+        });
 
         d3.select('#chart svg')
           .datum(data)

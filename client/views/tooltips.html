@@ -1,0 +1,11 @@
+<template name="tooltipBarChart">
+    <h3>{{title}}</h3>
+    <p>{{minutesSum}} minutes on {{date}}</p>
+    <ul>
+        {{#each actions}}
+        <li>
+            {{habit.title}} x {{duration}} min
+        </li>
+        {{/each}}
+    </ul>
+</template>
