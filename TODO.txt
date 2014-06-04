@@ -2,8 +2,9 @@ Now:
 
 
 TODO:
+* Are you sure dialog for deleting a habit
+* Display time in tooltip as hours:minuts
 * Show habit numbers  in tooltip of pie chart
-* Remove Actions
 * Action Comment
 * Easier duration input
 * Validation of Form Input (Habit title, New Category Title)
@@ -11,6 +12,7 @@ TODO:
 
 
 DONE:
+* Remove Actions
 * Show actions in tooltip of bar chart
 * Pie Chart Last Month
 * Edit Habit

@@ -29,3 +29,10 @@ Template.trackHabit.events({
   }
 
 });
+
+Template.lastActionTemplate.events({
+  'click .removeAction': function (event) {
+    event.preventDefault();
+    Actions.remove(this._id);
+  }
+});
