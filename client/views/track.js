@@ -19,14 +19,6 @@ Template.track.events({
   },
   'click .actionsColumnMode': function (event) {
     Session.set('actionsColumnLabel', $(event.target).text());
-  },
-  'click .remove': function () {
-    event.preventDefault();
-    Meteor.call('removeHabit', this._id, function (error, id) {
-      if (error) {
-        return alert(error.reason);
-      }
-    });
   }
 });
 

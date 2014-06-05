@@ -26,13 +26,24 @@ Template.trackHabit.events({
     event.preventDefault();
     $('#addActionDialog').modal({});
     Session.set('currentHabit', this);
+  },
+  'click .removeHabit': function () {
+    event.preventDefault();
+    if (window.confirm('Do you really want to delete the habit "' + this.title + '" ?')) {
+      Meteor.call('removeHabit', this._id, function (error, id) {
+        if (error) {
+          return alert(error.reason);
+        }
+      });
+    }
   }
-
 });
 
 Template.lastActionTemplate.events({
   'click .removeAction': function (event) {
     event.preventDefault();
-    Actions.remove(this._id);
+    if (window.confirm('Do you really want to delete this action?')) {
+      Actions.remove(this._id);
+    }
   }
 });
