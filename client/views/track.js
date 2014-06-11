@@ -59,11 +59,13 @@ Template.addActionDialog.events({
   },
   'submit #addActionForm': function (event) {
     event.preventDefault();
+    var form = event.target;
     var durationMoment = getMoment('.durationPicker');
     var action = {
       habit: Session.get('currentHabit')._id,
       duration: durationMoment.hours() * 60 + durationMoment.minutes(),
-      date: getMoment('.datetimePicker').toDate()
+      date: getMoment('.datetimePicker').toDate(),
+      comment: form.comment.value
     };
     Meteor.call('addAction', action, function (error, id) {
       if (error) {
