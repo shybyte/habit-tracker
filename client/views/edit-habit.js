@@ -3,7 +3,11 @@ Template.editHabit.helpers({
     return Categories.find({}, {sort: {title: 1}});
   },
   isSelectedCategory: function () {
-    return (Session.get('selectedCategoryId') || Categories.findOne()._id) == this._id;
+    var currentHabit = Session.get('currentHabit');
+    var categoryId = currentHabit ? Categories.findOne({_id: currentHabit.category})._id :
+      (Session.get('selectedCategoryId') || Categories.findOne()._id);
+    console.log(categoryId == this._id);
+    return categoryId == this._id;
   },
   currentHabit: function () {
     return Session.get('currentHabit');
@@ -33,7 +37,7 @@ Template.editHabit.events({
 
     function editHabit() {
       Meteor.call('saveHabit', {
-        _id: Session.get('currentHabit') ? Session.get('currentHabit')._id : undefined,
+        _id: Session.get('currentHabit') ? Session.get('currentHabit')._id : null,
         title: form.title.value,
         category: categoryId,
         user: Meteor.user()._id

@@ -2,15 +2,17 @@ Now:
 
 
 TODO:
+* Action Comment
 * Display time in tooltip as hours:minuts
 * Show habit numbers  in tooltip of pie chart
-* Action Comment
 * Easier duration input
 * Validation of Form Input (Habit title, New Category Title)
   - Don't allow + Warning Message + Mark red
 
 
 DONE:
+* Fix bug with wrong category in edit habit popup
+* Fix save new habit bug
 * Are you sure dialog for deleting a habit
 * Are you sure dialog for deleting a action
 * Remove Actions
