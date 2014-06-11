@@ -2,7 +2,6 @@ Now:
 
 
 TODO:
-* Action Comment
 * Display time in tooltip as hours:minuts
 * Show habit numbers  in tooltip of pie chart
 * Easier duration input
@@ -11,6 +10,7 @@ TODO:
 
 
 DONE:
+* Action Comment
 * Fix bug with wrong category in edit habit popup
 * Fix save new habit bug
 * Are you sure dialog for deleting a habit

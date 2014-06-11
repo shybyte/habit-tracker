@@ -18,3 +18,11 @@
 .lastAction .removeAction:focus{
     opacity: 0.5;
 }
+.comment {
+    display: block;
+    margin-bottom: 0.3em;
+}
+
+ul.tooltipActions {
+    margin-right: 1em;
+}

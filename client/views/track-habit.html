@@ -57,5 +57,8 @@
     <div class="lastAction">
         {{fromNow date}} x {{duration}} min
         <button type="button" class="removeAction close" title="Delete Action">&times;</button>
+        {{#if comment}}
+            <i class="comment">{{comment}}</i>
+        {{/if}}
     </div>
 </template>

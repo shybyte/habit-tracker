@@ -48,7 +48,8 @@ Accounts.onLogin(function (options) {
       habit: running,
       duration: Number.random(15, 60),
       date: moment().subtract('day', Number.random(1, 40)).toDate(),
-      user: userId
+      user: userId,
+      comment: 'Running around the Müggelsee'
     });
     Actions.insert({
       habit: bouldern,
