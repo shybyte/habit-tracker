@@ -2,7 +2,8 @@ Now:
 
 
 TODO:
-* Display time in tooltip as hours:minuts
+* Show login page directly on start, if not logged in
+* Bug: Comment remains in add action dialog.
 * Show habit numbers  in tooltip of pie chart
 * Easier duration input
 * Validation of Form Input (Habit title, New Category Title)
@@ -10,6 +11,8 @@ TODO:
 
 
 DONE:
+* Stats NaN Bug
+* Display time in tooltip as hours:minuts
 * Action Comment
 * Fix bug with wrong category in edit habit popup
 * Fix save new habit bug

@@ -12,7 +12,7 @@ function getLastMonthData() {
   if (!firstActionInLastMonth) {
     return [];
   }
-  var daysSinceFirstActionInLastMonth = moment.duration((Date.now() - firstActionInLastMonth.date.getTime())).days();
+  var daysSinceFirstActionInLastMonth = moment.duration(( (Date.now() - firstActionInLastMonth.date.getTime()))).asDays();
   var daysRange = Number.range(Math.min(31, daysSinceFirstActionInLastMonth + 2), 0).every();
   var actionsByCategory = lastMonthActions.groupBy(function (action) {
     return action.habit.category;
@@ -90,7 +90,8 @@ Template.stats.rendered = function () {
           .showLabels(true);
 
         chart.tooltipContent(function (key, y, e, graph) {
-          return (y / 60).round(2) + ' hours';
+          var duration = moment.duration(e.value, 'minutes');
+          return Math.floor(duration.asHours()) +':'+ duration.minutes()+ ' hours';
         });
 
         d3.select("#monthPie svg")
