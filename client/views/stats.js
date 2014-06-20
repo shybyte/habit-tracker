@@ -12,7 +12,7 @@ function getLastMonthData() {
   if (!firstActionInLastMonth) {
     return [];
   }
-  var daysSinceFirstActionInLastMonth = moment.duration(( (Date.now() - firstActionInLastMonth.date.getTime()))).asDays();
+  var daysSinceFirstActionInLastMonth = Math.floor(moment.duration(( (Date.now() - firstActionInLastMonth.date.getTime()))).asDays());
   var daysRange = Number.range(Math.min(31, daysSinceFirstActionInLastMonth + 2), 0).every();
   var actionsByCategory = lastMonthActions.groupBy(function (action) {
     return action.habit.category;
